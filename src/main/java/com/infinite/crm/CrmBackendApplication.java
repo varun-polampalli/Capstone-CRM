@@ -12,7 +12,7 @@ public class CrmBackendApplication {
 	private static final Logger logger = Logger.getLogger(CrmBackendApplication.class);
 
 	public static void main(String[] args) {
-		PropertyConfigurator.configure("Log4j.properties"); 
+		PropertyConfigurator.configure("Log4j.properties");          //log4j properties file
 		SpringApplication.run(CrmBackendApplication.class, args);
 		logger.info("Working");
 	}

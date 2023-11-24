@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Admin {
+public class Admin {                       //admin pojo
 
 	@Id
 	@GeneratedValue
