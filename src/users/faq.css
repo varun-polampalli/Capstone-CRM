@@ -1,0 +1,88 @@
+body {
+    font-family: Verdana, 'Roboto', sans-serif, Monospace;
+    background: antiquewhite;
+    line-height: 1.5;
+}
+
+main {
+    max-width: 80%;
+    margin: 10px auto;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    border: 3px solid green;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto
+}
+
+.title {
+    text-align: center;
+    font-family: Arial;
+    margin-top: 50px;
+    margin-bottom: 50px
+}
+
+.accordion__item {
+    margin-bottom: 10px
+}
+
+.accordion__item__header {
+    background-color: #CBEAFE;
+    padding: 15px;
+    cursor: pointer;
+    position: relative;
+    color: #000;
+    font-family: Arial;
+    font-weight: 400;
+    font-size: 20px
+}
+
+.accordion__item__header::before {
+    height: 15px;
+    width: 15px;
+    content: "";
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    transition: .5s all;
+    transform: rotate(45deg);
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000
+}
+
+.accordion__item__header.active {
+    background-color: #33a0ff;
+    color: #fff;
+    transition: .5s
+}
+
+.accordion__item__header.active::before {
+    transform: rotate(-135deg);
+    top: 23px;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff
+}
+
+.accordion__item__content {
+    overflow-y: auto;
+    padding: 0;
+    display: none
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+    .testbtn {
+        width: 100%;
+        height: auto;
+        padding: 0 !important;
+        margin: 1px !important;
+        font-size: 18px;
+    }
+}
