@@ -1,5 +1,5 @@
-access-key : AKIAXU4OK7H5JZ62625U
-Secret-key : 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
+access-key : AKIAXU4OK7H5NTVJ5L5D
+Secret-key : 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
 
 aws ec2 run-instances \
     --image-id ami-09694bfab577e90b0 \  # Specify the AMI ID 
