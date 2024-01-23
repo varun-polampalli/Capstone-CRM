@@ -11,3 +11,10 @@ aws ec2 run-instances \
 aws ec2 run-instances --image-id ami-09694bfab577e90b0 --count 1 --instance-type t2.micro --key-name vm --security-group-ids sg-092cb18ff82949103 --subnet-id subnet-0870eedbd00bb21e1
 
 aws sts get-caller-identity
+
+North:
+----------
+Access key : AKIAXU4OK7H5PHG7Z6G3
+Secret Key : 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
+
+aws ec2 run-instances --image-id ami-0a3c3a20c09d6f377 --instance-type t2.micro --key-name test-key --subnet-id subnet-04ffaf1c42dbee03e --security-group-ids sg-0dd957d4d1a3fbae6 --count 1
