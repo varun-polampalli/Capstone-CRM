@@ -9,3 +9,5 @@ aws ec2 run-instances \
     --security-group-ids sg-092cb18ff82949103 # Specify the security group IDs
 
 aws ec2 run-instances --image-id ami-09694bfab577e90b0 --count 1 --instance-type t2.micro --key-name vm --security-group-ids sg-092cb18ff82949103 --subnet-id subnet-0870eedbd00bb21e1
+
+aws sts get-caller-identity
