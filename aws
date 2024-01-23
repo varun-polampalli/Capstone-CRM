@@ -2,8 +2,8 @@ access-key : AKIAXU4OK7H5JZ62625U
 Secret-key : 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
 
 aws ec2 run-instances \
-    --image-id ami-xxxxxxxxxxxxxxxxx \  # Specify the AMI ID
+    --image-id ami-09694bfab577e90b0 \  # Specify the AMI ID 
     --instance-type t2.micro \          # Specify the instance type
-    --key-name YourKeyPairName \        # Specify the key pair name
-    --subnet-id subnet-xxxxxxxxxxxxxx \ # Specify the subnet ID
-    --security-group-ids sg-xxxxxxxxxxxxxx # Specify the security group IDs
+    --key-name vm.pem \        # Specify the key pair name
+    --subnet-id subnet-0870eedbd00bb21e1 \ # Specify the subnet ID
+    --security-group-ids sg-092cb18ff82949103 # Specify the security group IDs
