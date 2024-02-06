@@ -40,4 +40,4 @@ sudo sed -i 's/index.html/index.php/g' /etc/httpd/conf/httpd.conf
 sudo service httpd start
 sudo systemctl enable httpd
 
-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
+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
