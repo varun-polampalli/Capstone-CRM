@@ -19,7 +19,7 @@ spec:
         - containerPort: 3306
 
     - name: capstone-app-container
-      image: capstone-crm
+      image: varunpolampalli2001/crm
       env:
         - name: SPRING_DATASOURCE_URL
           value: jdbc:mysql://localhost:3306/capstone
@@ -31,7 +31,7 @@ spec:
         - containerPort: 8080
 
     - name: nodejs-app-container
-      image: front
+      image: varunpolampalli2001/varun1:latest
       ports:
         - containerPort: 3000
 
