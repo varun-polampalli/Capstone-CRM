@@ -1,0 +1,37 @@
+version: '3.8'
+
+
+services:
+  capstone-app:
+    image: capstone-crm
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-server:3306/capstone
+      SPRING_DATASOURCE_USERNAME: varun
+      SPRING_DATASOURCE_PASSWORD: mysql123@
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql-server
+
+  mysql-server:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: capstone
+      MYSQL_USER: varun
+      MYSQL_PASSWORD: mysql123@
+    ports:
+      - "3306:3306"
+      
+  nodejs-app:
+    image: front
+    build:
+      context: .
+      dockerfile: CRM-Frontend/Docker.frontend
+    ports:
+      - "3000:3000"  # Adjust the port number as needed
+    depends_on:
+      - capstone-app

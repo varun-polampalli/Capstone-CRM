@@ -1,0 +1,79 @@
+# FROM java:8
+# EXPOSE 8082
+# ADD /target/dockerdemo.jar dockerdemo.jar
+# ENTRYPOINT ["java", "-jar", "dockerdemo.jar"]
+
+# Use an OpenJDK base image
+#FROM ubuntu
+
+#RUN apt-get update -y && apt upgrade -y 
+
+#RUN apt install openjdk-11-jdk-headless -y
+
+#RUN apt install mysql-server -y
+# Set the working directory in the container
+#WORKDIR /app
+
+#COPY Log4j.properties /app/
+# Copy the packaged JAR file into the container at /app
+#COPY target/CRM-Backend-0.0.1-SNAPSHOT.jar /app/CRM-Backend-0.0.1-SNAPSHOT.jar
+
+# Expose port 8080
+#EXPOSE 8080
+
+# Install MySQL client
+#RUN apt-get update && apt-get install -y default-mysql-client
+
+# Define environment variables for MySQL connection
+#ENV MYSQL_HOST=localhost \
+ #   MYSQL_PORT=3306 \
+  #  MYSQL_DATABASE=capstone \
+   # MYSQL_USER=varun \
+    #MYSQL_PASSWORD=mysql123@
+
+# Health check
+#HEALTHCHECK --interval=30s --timeout=5s CMD curl -f http://localhost:8080/actuator/health || exit 1
+
+# Run the application when the container starts
+#CMD ["java", "-jar", "CRM-Backend-0.0.1-SNAPSHOT.jar"]
+
+
+
+# Use a base image suitable for your application (e.g., OpenJDK)
+FROM openjdk:11-jre-slim
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the JAR file from the local machine to the container
+COPY target/CRM-Backend-0.0.1-SNAPSHOT.jar /app/CRM-Backend-0.0.1-SNAPSHOT.jar
+COPY Log4j.properties /app/
+# Your existing environment and port configurations
+ENV SPRING_DATASOURCE_URL=jdbc:mysql://mysql-server:3306/capstone
+ENV SPRING_DATASOURCE_USERNAME=varun
+ENV SPRING_DATASOURCE_PASSWORD=mysql123@
+EXPOSE 8080
+
+# Command to run your application
+CMD ["java", "-jar", "CRM-Backend-0.0.1-SNAPSHOT.jar"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
