@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: frontend-app
+  labels:
+    app: CRM1
+spec:
+  containers:
+    - name: nodejs-app-container
+      image: varunpolampalli2001/crmfrontend
+      ports:
+        - containerPort: 3000

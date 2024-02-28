@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: backend-app
+  labels:
+    app: CRM
+spec:
+  containers:
+  
+    - name: capstone-app-container
+      image: varunpolampalli2001/crmbackend
+      ports:
+        - containerPort: 8080
+
+#    - name: nodejs-app-container
+#      image: varunpolampalli2001/varun1
+#      ports:
+#        - containerPort: 3000

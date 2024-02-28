@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment1
+  labels:
+    app: CRM
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: CRM
+  template:
+    metadata:
+      labels:
+        app: CRM
+    spec:
+      containers:
+      - name: capstone-app-container
+        image: varunpolampalli2001/crmbackend
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: capstone-app-storage
+          mountPath: "/app" 
+
+      - name: nodejs-app-container
+        image: varunpolampalli2001/varun1
+        ports:
+        - containerPort: 3000
+        volumeMounts:
+        - name: nodejs-app-storage
+          mountPath: "/usr/src/app" 
+      volumes:
+      - name: capstone-app-storage
+        persistentVolumeClaim:
+          claimName: example-pvc
+
+      - name: nodejs-app-storage
+        persistentVolumeClaim:
+          claimName: example-pvc

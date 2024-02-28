@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  labels:
+    app: CRM
+spec:
+  replicas: 1  # You can adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: CRM
+  template:
+    metadata:
+      labels:
+        app: CRM
+    spec:
+      containers:
+      - name: capstone-app-container
+        image: varunpolampalli2001/crmbackend1
+        ports:
+        - containerPort: 8080
+
+      - name: nodejs-app-container
+        image: varunpolampalli2001/varun1
+        ports:
+        - containerPort: 3000
