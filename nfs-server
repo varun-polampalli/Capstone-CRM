@@ -1,0 +1,31 @@
+sudo apt update -y
+
+sudo apt install nfs-kernel-server -y
+
+sudo mkdir -p /mnt/bharath
+
+sudo chown -R nobody:nogroup /mnt/bharath/
+
+sudo vim /etc/exports
+
+
+#insert this content to /etc/exports 
+/mnt/bharath  *(rw,sync,no_subtree_check,no_root_squash,no_all_squash,insecure)
+#  if you face any security issues then use below content 
+# /mnt/bharath  *(rw,sync,no_subtree_check,insecure)
+
+sudo exportfs -rav
+
+#to check exports 
+sudo exportfs -v or showmount -e 
+     
+sudo systemctl restart nfs-kernel-server
+
+#install NFS-Client (in Worker Nodes)
+#------------------------------------
+
+sudo apt install nfs-common -y
+showmount -e <nfs-server-ip>
+
+# To Specify the mnt path in local machine 
+mount -t nfs 18.226.52.69:/mnt/bharath/ /mnt #/mnt is the path of client machine dir
